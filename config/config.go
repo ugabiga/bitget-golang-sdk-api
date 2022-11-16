@@ -11,6 +11,7 @@ const (
 	WsUrl = "wss://ws.bitgetapi.com/spot/v1/stream"
 )
 
+
 // credentials
 type ApiCreds struct {
 	ApiKey string

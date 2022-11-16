@@ -1,9 +1,10 @@
 package common
 
 import (
-	"bitget/internal"
 	"fmt"
 	"testing"
+	
+	"github.com/aexlab51/bitget-golang-sdk-api/internal"
 )
 
 func TestSigner_Sign(t *testing.T) {

@@ -1,9 +1,10 @@
 package mix
 
 import (
-	"bitget/pkg/model/mix/account"
 	"fmt"
 	"testing"
+
+	"github.com/aexlab51/bitget-golang-sdk-api/pkg/model/mix/account"
 )
 
 func TestMixAccountClient_GetAccount(t *testing.T) {

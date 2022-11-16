@@ -1,9 +1,10 @@
 package spot
 
 import (
-	"bitget/pkg/model/spot/account"
 	"fmt"
 	"testing"
+
+	"github.com/aexlab51/bitget-golang-sdk-api/pkg/model/spot/account"
 )
 
 func TestSpotAccountClient_Assets(t *testing.T) {

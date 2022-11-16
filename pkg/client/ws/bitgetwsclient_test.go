@@ -1,9 +1,10 @@
 package ws
 
 import (
-	"bitget/internal/model"
 	"fmt"
 	"testing"
+
+	"github.com/aexlab51/bitget-golang-sdk-api/internal/model"
 )
 
 func TestBitgetWsClient_New(t *testing.T) {

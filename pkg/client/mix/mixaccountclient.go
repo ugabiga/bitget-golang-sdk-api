@@ -1,10 +1,10 @@
 package mix
 
 import (
-	"bitget/constants"
-	"bitget/internal"
-	"bitget/internal/common"
-	"bitget/pkg/model/mix/account"
+	"github.com/aexlab51/bitget-golang-sdk-api/constants"
+	"github.com/aexlab51/bitget-golang-sdk-api/internal"
+	"github.com/aexlab51/bitget-golang-sdk-api/internal/common"
+	"github.com/aexlab51/bitget-golang-sdk-api/pkg/model/mix/account"
 )
 
 type MixAccountClient struct {

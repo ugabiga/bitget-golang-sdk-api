@@ -1,10 +1,10 @@
 package mix
 
 import (
-	"bitget/constants"
-	"bitget/internal"
-	"bitget/internal/common"
-	"bitget/pkg/model/mix/trace"
+	"github.com/aexlab51/bitget-golang-sdk-api/constants"
+	"github.com/aexlab51/bitget-golang-sdk-api/internal"
+	"github.com/aexlab51/bitget-golang-sdk-api/internal/common"
+	"github.com/aexlab51/bitget-golang-sdk-api/pkg/model/mix/trace"
 )
 
 type MixTraceClient struct {

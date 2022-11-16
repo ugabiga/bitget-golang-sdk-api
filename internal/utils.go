@@ -1,8 +1,6 @@
 package internal
 
 import (
-	"bitget/constants"
-	//"encoding/json"
 	"github.com/goccy/go-json"
 	"errors"
 	"math"
@@ -10,6 +8,8 @@ import (
 	"net/url"
 	"strconv"
 	"time"
+
+	"github.com/aexlab51/bitget-golang-sdk-api/constants"
 )
 
 func TimesStamp() string {
