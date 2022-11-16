@@ -1,4 +1,4 @@
-module github.com/aexlab51/bitget-golang-sdk-api
+module bitget
 
 go 1.16
 

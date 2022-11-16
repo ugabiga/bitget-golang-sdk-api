@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/aexlab51/bitget-golang-sdk-api/constants"
+	"bitget/constants"
 )
 
 func TimesStamp() string {

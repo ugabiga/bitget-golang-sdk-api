@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 	
-	"github.com/aexlab51/bitget-golang-sdk-api/internal"
+	"bitget/internal"
 )
 
 func TestSigner_Sign(t *testing.T) {

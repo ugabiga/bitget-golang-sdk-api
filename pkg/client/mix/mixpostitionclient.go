@@ -1,9 +1,9 @@
 package mix
 
 import (
-	"github.com/aexlab51/bitget-golang-sdk-api/constants"
-	"github.com/aexlab51/bitget-golang-sdk-api/internal"
-	"github.com/aexlab51/bitget-golang-sdk-api/internal/common"
+	"bitget/constants"
+	"bitget/internal"
+	"bitget/internal/common"
 )
 
 type MixPositionClient struct {

@@ -6,7 +6,7 @@ import (
 	"hash/crc32"
 	"testing"
 	
-	"github.com/aexlab51/bitget-golang-sdk-api/pkg/model/mix/trace"
+	"bitget/pkg/model/mix/trace"
 )
 
 func TestMixTraceClient_CloseTrackOrder(t *testing.T) {

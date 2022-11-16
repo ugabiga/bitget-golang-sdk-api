@@ -1,10 +1,10 @@
 package broker
 
 import (
-	"github.com/aexlab51/bitget-golang-sdk-api/constants"
-	"github.com/aexlab51/bitget-golang-sdk-api/internal"
-	"github.com/aexlab51/bitget-golang-sdk-api/internal/common"
-	"github.com/aexlab51/bitget-golang-sdk-api/pkg/model/broker"
+	"bitget/constants"
+	"bitget/internal"
+	"bitget/internal/common"
+	"bitget/pkg/model/broker"
 )
 
 type BrokerAccountClient struct {

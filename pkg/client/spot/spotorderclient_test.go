@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/aexlab51/bitget-golang-sdk-api/pkg/model/spot/order"
+	"bitget/pkg/model/spot/order"
 )
 
 func TestSpotOrderClient_Orders(t *testing.T) {
