@@ -19,7 +19,7 @@ type ApiCreds struct {
 	PASSPHRASE string
 }
 
-func Get() *ApiCreds {
+func GetDefaultCredentials() *ApiCreds {
 	return &ApiCreds{
 		ApiKey:     os.Getenv("BITGET_API_KEY"),
 		SecretKey:  os.Getenv("BITGET_API_SECRET"),

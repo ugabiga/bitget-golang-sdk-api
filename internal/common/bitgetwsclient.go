@@ -31,7 +31,7 @@ type BitgetBaseWsClient struct {
 }
 
 func (p *BitgetBaseWsClient) Init() *BitgetBaseWsClient {
-	creds := config.Get()
+	creds := config.GetDefaultCredentials()
 
 	p.Connection = false
 	p.AllSuribe = model.NewSet()
@@ -69,7 +69,7 @@ func (p *BitgetBaseWsClient) ConnectWebSocket() {
 }
 
 func (p *BitgetBaseWsClient) Login() {
-	creds := config.Get()
+	creds := config.GetDefaultCredentials()
 
 	timesStamp := internal.TimesStampSec()
 	sign := p.Signer.Sign(constants.WsAuthMethod, constants.WsAuthPath, "", timesStamp)
