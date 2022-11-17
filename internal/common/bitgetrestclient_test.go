@@ -3,7 +3,7 @@ package common
 import (
 	"testing"
 	
-	"bitget/internal"
+	"github.com/aexlab51/bitget-golang-sdk-api/internal"
 )
 
 func TestBitgetRestClient_HttpExecuter(t *testing.T) {

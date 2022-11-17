@@ -7,16 +7,11 @@ import (
 	"sync"
 	"time"
 
-	//"github.com/aexlab51/bitget-golang-sdk-api/config"
-	//"github.com/aexlab51/bitget-golang-sdk-api/constants"
-	//"github.com/aexlab51/bitget-golang-sdk-api/internal"
-	//"github.com/aexlab51/bitget-golang-sdk-api/internal/model"
-	//"github.com/aexlab51/bitget-golang-sdk-api/logging/applogger"
-	"bitget/config"
-	"bitget/constants"
-	"bitget/internal"
-	"bitget/internal/model"
-	"bitget/logging/applogger"
+	"github.com/aexlab51/bitget-golang-sdk-api/config"
+	"github.com/aexlab51/bitget-golang-sdk-api/constants"
+	"github.com/aexlab51/bitget-golang-sdk-api/internal"
+	"github.com/aexlab51/bitget-golang-sdk-api/internal/model"
+	"github.com/aexlab51/bitget-golang-sdk-api/logging/applogger"
 )
 
 type BitgetBaseWsClient struct {

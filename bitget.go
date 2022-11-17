@@ -1,10 +1,10 @@
 package bitget
 
 import (
-	"bitget/pkg/client/broker"
-	"bitget/pkg/client/mix"
-	"bitget/pkg/client/spot"
-	"bitget/pkg/client/ws"
+	"github.com/aexlab51/bitget-golang-sdk-api/pkg/client/broker"
+	"github.com/aexlab51/bitget-golang-sdk-api/pkg/client/mix"
+	"github.com/aexlab51/bitget-golang-sdk-api/pkg/client/spot"
+	"github.com/aexlab51/bitget-golang-sdk-api/pkg/client/ws"
 )
 
 // broker

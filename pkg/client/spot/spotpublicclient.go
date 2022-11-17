@@ -1,9 +1,9 @@
 package spot
 
 import (
-	"bitget/constants"
-	"bitget/internal"
-	"bitget/internal/common"
+	"github.com/aexlab51/bitget-golang-sdk-api/constants"
+	"github.com/aexlab51/bitget-golang-sdk-api/internal"
+	"github.com/aexlab51/bitget-golang-sdk-api/internal/common"
 )
 
 type SpotPublicClient struct {

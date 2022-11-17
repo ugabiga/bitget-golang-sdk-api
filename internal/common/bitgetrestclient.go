@@ -6,12 +6,9 @@ import (
 	"strings"
 	"time"
 
-	//"github.com/aexlab51/bitget-golang-sdk-api/config"
-	//"github.com/aexlab51/bitget-golang-sdk-api/constants"
-	//"github.com/aexlab51/bitget-golang-sdk-api/internal"
-	"bitget/config"
-	"bitget/constants"
-	"bitget/internal"
+	"github.com/aexlab51/bitget-golang-sdk-api/config"
+	"github.com/aexlab51/bitget-golang-sdk-api/constants"
+	"github.com/aexlab51/bitget-golang-sdk-api/internal"
 )
 
 type BitgetRestClient struct {
