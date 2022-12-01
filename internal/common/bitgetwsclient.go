@@ -131,14 +131,14 @@ func (p *BitgetBaseWsClient) tickerLoop() {
 
 			if elapsedSecond > constants.ReconnectWaitSecond {
 				applogger.Info("WebSocket reconnect...")
-				p.disconnectWebSocket()
+				p.DisconnectWebSocket()
 				p.ConnectWebSocket()
 			}
 		}
 	}
 }
 
-func (p *BitgetBaseWsClient) disconnectWebSocket() {
+func (p *BitgetBaseWsClient) DisconnectWebSocket() {
 	if p.WebSocketClient == nil {
 		return
 	}

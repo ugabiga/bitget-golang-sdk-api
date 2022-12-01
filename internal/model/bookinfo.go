@@ -7,6 +7,7 @@ type BookInfo struct {
 }
 
 
+// @todo
 func (bi *BookInfo) Merge(book BookInfo) BookInfo {
 	var nb BookInfo
 

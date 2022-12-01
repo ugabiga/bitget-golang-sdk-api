@@ -2,8 +2,10 @@ package bitget
 
 import (
 	"net/http"
+	"strings"
 
 	"github.com/aexlab51/bitget-golang-sdk-api/internal/common"
+	"github.com/aexlab51/bitget-golang-sdk-api/internal/model"
 	"github.com/aexlab51/bitget-golang-sdk-api/pkg/client/broker"
 	"github.com/aexlab51/bitget-golang-sdk-api/pkg/client/mix"
 	"github.com/aexlab51/bitget-golang-sdk-api/pkg/client/spot"
@@ -101,7 +103,92 @@ func (c *Client) NewSpotWalletService() *spot.SpotWalletClient {
 //*/
 
 
-// ws - @todo
-func NewWsClient() *ws.BitgetWsClient {
-	return new(ws.BitgetWsClient)
+
+// ws
+type WsClient struct {
+	bws *ws.BitgetWsClient
+}
+
+func NewWsClient() *WsClient {
+	return &WsClient {
+		new(ws.BitgetWsClient),
+	}
+}
+
+func (ws *WsClient) Close(){
+	ws.bws.Close()
+}
+
+type UnscribeFunc func()
+
+
+// spot
+func (ws *WsClient) SubscribeSpot(channel string, symbols ...string) UnscribeFunc {
+	subs := make([]model.SubscribeReq, len(symbols))
+	for i, s := range symbols {
+		subs[i] = model.SubscribeReq{
+			InstType: "SP",
+			Channel:  channel,
+			InstId:   s,
+		}
+	}
+	ws.bws.SubscribeDef(subs)
+
+	return func() { ws.bws.UnSubscribe(subs) }
+}
+
+func (ws *WsClient) SubscribeSpotAccount() UnscribeFunc {
+	sub := []model.SubscribeReq{
+		{
+			InstType: "spbl",
+			Channel:  "account",
+			InstId:   "default",
+		},
+	}
+	ws.bws.SubscribeDef(sub)
+
+	return func() { ws.bws.UnSubscribe(sub) }
+}
+func (ws *WsClient) SubscribeSpotOrder(symbols ...string) UnscribeFunc {
+	subs := make([]model.SubscribeReq, len(symbols))
+	for i, s := range symbols {
+		subs[i] = model.SubscribeReq{
+			InstType: "spbl",
+			Channel:  "orders",
+			InstId:   strings.ToUpper(s)+"_SPBL",
+		}
+	}
+	ws.bws.SubscribeDef(subs)
+
+	return func() { ws.bws.UnSubscribe(subs) }
+}
+
+
+// futures
+func (ws *WsClient) SubscribeFutures(channel string, symbols ...string) UnscribeFunc {
+	subs := make([]model.SubscribeReq, len(symbols))
+	for i, s := range symbols {
+		subs[i] = model.SubscribeReq{
+			InstType: "MC",
+			Channel:  channel,
+			InstId:   s,
+		}
+	}
+	ws.bws.SubscribeDef(subs)
+
+	return func() { ws.bws.UnSubscribe(subs) }
+}
+
+func (ws *WsClient) SubscribeForContracts(channel string, contracts ...string) UnscribeFunc {
+	subs := make([]model.SubscribeReq, len(contracts))
+	for i, cid := range contracts {
+		subs[i] = model.SubscribeReq{
+			InstType: cid,
+			Channel:  channel,
+			InstId:   "default",
+		}
+	}
+	ws.bws.SubscribeDef(subs)
+
+	return func() { ws.bws.UnSubscribe(subs) }
 }
