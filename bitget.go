@@ -115,6 +115,10 @@ func NewWsClient() *WsClient {
 	}
 }
 
+func (ws *WsClient) Init(listener common.OnReceive, errorListener common.OnReceive, secure bool) *ws.BitgetWsClient {
+	return ws.bws.Init(secure, listener, errorListener)
+}
+
 func (ws *WsClient) Close(){
 	ws.bws.Close()
 }
