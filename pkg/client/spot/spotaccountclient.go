@@ -1,10 +1,10 @@
 package spot
 
 import (
-	"github.com/aexlab51/bitget-golang-sdk-api/constants"
-	"github.com/aexlab51/bitget-golang-sdk-api/internal"
-	"github.com/aexlab51/bitget-golang-sdk-api/internal/common"
-	"github.com/aexlab51/bitget-golang-sdk-api/pkg/model/spot/account"
+	"github.com/outtoin/bitget-golang-sdk-api/constants"
+	"github.com/outtoin/bitget-golang-sdk-api/internal"
+	"github.com/outtoin/bitget-golang-sdk-api/internal/common"
+	"github.com/outtoin/bitget-golang-sdk-api/pkg/model/spot/account"
 )
 
 type SpotAccountClient struct {

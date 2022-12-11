@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aexlab51/bitget-golang-sdk-api/config"
-	"github.com/aexlab51/bitget-golang-sdk-api/constants"
-	"github.com/aexlab51/bitget-golang-sdk-api/internal"
+	"github.com/outtoin/bitget-golang-sdk-api/config"
+	"github.com/outtoin/bitget-golang-sdk-api/constants"
+	"github.com/outtoin/bitget-golang-sdk-api/internal"
 )
 
 type BitgetRestClient struct {
@@ -28,7 +28,7 @@ func (p *BitgetRestClient) InitWithCreds(creds *config.ApiCreds) *BitgetRestClie
 	p.ApiKey = creds.ApiKey
 	p.ApiSecretKey = creds.SecretKey
 	p.Passphrase = creds.PASSPHRASE
-	
+
 	p.BaseUrl = config.BaseUrl
 	p.Signer = new(Signer).Init(creds.SecretKey)
 	p.HttpClient = &http.Client{

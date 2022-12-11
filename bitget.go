@@ -4,31 +4,31 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/aexlab51/bitget-golang-sdk-api/internal/common"
-	"github.com/aexlab51/bitget-golang-sdk-api/internal/model"
-	"github.com/aexlab51/bitget-golang-sdk-api/pkg/client/broker"
-	"github.com/aexlab51/bitget-golang-sdk-api/pkg/client/mix"
-	"github.com/aexlab51/bitget-golang-sdk-api/pkg/client/spot"
-	"github.com/aexlab51/bitget-golang-sdk-api/pkg/client/ws"
+	"github.com/outtoin/bitget-golang-sdk-api/internal/common"
+	"github.com/outtoin/bitget-golang-sdk-api/internal/model"
+	"github.com/outtoin/bitget-golang-sdk-api/pkg/client/broker"
+	"github.com/outtoin/bitget-golang-sdk-api/pkg/client/mix"
+	"github.com/outtoin/bitget-golang-sdk-api/pkg/client/spot"
+	"github.com/outtoin/bitget-golang-sdk-api/pkg/client/ws"
 )
 
 // client
 type Client struct {
-	client 				*common.BitgetRestClient
+	client *common.BitgetRestClient
 
-	brokerService 		*broker.BrokerAccountClient
+	brokerService *broker.BrokerAccountClient
 
-	mixAccountService	*mix.MixAccountClient
-	mixMarketService	*mix.MixMarketClient
-	mixOrderService		*mix.MixOrderClient
-	mixPlanService		*mix.MixPlanClient
-	mixPositionService	*mix.MixPositionClient
-	mixTraceService		*mix.MixTraceClient
+	mixAccountService  *mix.MixAccountClient
+	mixMarketService   *mix.MixMarketClient
+	mixOrderService    *mix.MixOrderClient
+	mixPlanService     *mix.MixPlanClient
+	mixPositionService *mix.MixPositionClient
+	mixTraceService    *mix.MixTraceClient
 
-	spotAccountService	*spot.SpotAccountClient
-	spotMarketService	*spot.SpotMarketClient
-	spotOrderService	*spot.SpotOrderClient
-	spotPublicService	*spot.SpotPublicClient
+	spotAccountService *spot.SpotAccountClient
+	spotMarketService  *spot.SpotMarketClient
+	spotOrderService   *spot.SpotOrderClient
+	spotPublicService  *spot.SpotPublicClient
 	//spotWalletService	*spot.SpotWalletClient			// @todo
 }
 
@@ -56,7 +56,6 @@ func (c *Client) SetHttpClient(client *http.Client) *Client {
 	c.client.HttpClient = client
 	return c
 }
-
 
 // broker
 func (c *Client) GetBrokerService() *broker.BrokerAccountClient {
@@ -96,13 +95,12 @@ func (c *Client) GetSpotOrderService() *spot.SpotOrderClient {
 func (c *Client) GetSpotPublicService() *spot.SpotPublicClient {
 	return c.spotPublicService
 }
+
 /* @todo
 func (c *Client) NewSpotWalletService() *spot.SpotWalletClient {
 	return c.spotWalletService
 }
 //*/
-
-
 
 // ws
 type WsClient struct {
@@ -110,7 +108,7 @@ type WsClient struct {
 }
 
 func NewWsClient() *WsClient {
-	return &WsClient {
+	return &WsClient{
 		new(ws.BitgetWsClient),
 	}
 }
@@ -119,12 +117,11 @@ func (ws *WsClient) Init(listener common.OnReceive, errorListener common.OnRecei
 	return ws.bws.Init(secure, listener, errorListener)
 }
 
-func (ws *WsClient) Close(){
+func (ws *WsClient) Close() {
 	ws.bws.Close()
 }
 
 type UnscribeFunc func()
-
 
 // spot
 func (ws *WsClient) SubscribeSpot(channel string, symbols ...string) UnscribeFunc {
@@ -159,14 +156,13 @@ func (ws *WsClient) SubscribeSpotOrder(symbols ...string) UnscribeFunc {
 		subs[i] = model.SubscribeReq{
 			InstType: "spbl",
 			Channel:  "orders",
-			InstId:   strings.ToUpper(s)+"_SPBL",
+			InstId:   strings.ToUpper(s) + "_SPBL",
 		}
 	}
 	ws.bws.SubscribeDef(subs)
 
 	return func() { ws.bws.UnSubscribe(subs) }
 }
-
 
 // futures
 func (ws *WsClient) SubscribeFutures(channel string, symbols ...string) UnscribeFunc {
