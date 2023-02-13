@@ -1,6 +1,8 @@
 package common
 
 import (
+	"errors"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strings"
@@ -54,6 +56,10 @@ func (p *BitgetRestClient) DoPost(uri string, params string) (string, error) {
 	}
 	response, err := p.HttpClient.Do(request)
 
+	if response.StatusCode != 200 {
+		return "", errors.New(fmt.Sprintf("StatusCode: %d, error: %v", response.StatusCode, err))
+	}
+
 	if err != nil {
 		return "", err
 	}
@@ -84,6 +90,9 @@ func (p *BitgetRestClient) DoGet(uri string, params map[string]string) (string, 
 	internal.Headers(request, p.ApiKey, timesStamp, sign, p.Passphrase)
 
 	response, err := p.HttpClient.Do(request)
+	if response.StatusCode != 200 {
+		return "", errors.New(fmt.Sprintf("StatusCode: %d, error: %v", response.StatusCode, err))
+	}
 
 	if err != nil {
 		return "", err
