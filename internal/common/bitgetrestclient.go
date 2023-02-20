@@ -60,10 +60,6 @@ func (p *BitgetRestClient) DoPost(uri string, params string) (string, error) {
 		return "", err
 	}
 
-	if response.StatusCode != 200 {
-		return "", errors.New(fmt.Sprintf("StatusCode: %d, error: %v", response.StatusCode, err))
-	}
-
 	defer response.Body.Close()
 
 	bodyStr, err := ioutil.ReadAll(response.Body)
@@ -72,6 +68,11 @@ func (p *BitgetRestClient) DoPost(uri string, params string) (string, error) {
 	}
 
 	responseBodyString := string(bodyStr)
+
+	if response.StatusCode != 200 {
+		return "", errors.New(fmt.Sprintf("StatusCode: %d, error: %v", response.StatusCode, err))
+	}
+
 	return responseBodyString, err
 }
 
@@ -95,10 +96,6 @@ func (p *BitgetRestClient) DoGet(uri string, params map[string]string) (string, 
 		return "", err
 	}
 
-	if response.StatusCode != 200 {
-		return "", errors.New(fmt.Sprintf("StatusCode: %d, error: %v", response.StatusCode, err))
-	}
-
 	defer response.Body.Close()
 
 	bodyStr, err := ioutil.ReadAll(response.Body)
@@ -107,5 +104,10 @@ func (p *BitgetRestClient) DoGet(uri string, params map[string]string) (string, 
 	}
 
 	responseBodyString := string(bodyStr)
+
+	if response.StatusCode != 200 {
+		return "", errors.New(fmt.Sprintf("StatusCode: %d, error: %v", response.StatusCode, responseBodyString))
+	}
+
 	return responseBodyString, err
 }
