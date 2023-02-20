@@ -70,7 +70,7 @@ func (p *BitgetRestClient) DoPost(uri string, params string) (string, error) {
 	responseBodyString := string(bodyStr)
 
 	if response.StatusCode != 200 {
-		return "", errors.New(fmt.Sprintf("StatusCode: %d, error: %v", response.StatusCode, err))
+		return "", errors.New(fmt.Sprintf("StatusCode: %d, error: %v", response.StatusCode, responseBodyString))
 	}
 
 	return responseBodyString, err
