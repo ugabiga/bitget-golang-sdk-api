@@ -45,9 +45,9 @@ type PlacePlanReq struct {
 	/**
 	 * Default stop profit price
 	 */
-	PresetTakeProfitPrice string `json:"presetTakeProfitPrice"`
+	PresetTakeProfitPrice string `json:"presetTakeProfitPrice,omitempty"`
 	/**
 	 * Preset stop loss price
 	 */
-	PresetStopLossPrice string `json:"presetStopLossPrice"`
+	PresetStopLossPrice string `json:"presetStopLossPrice,omitempty"`
 }
