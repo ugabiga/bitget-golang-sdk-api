@@ -143,6 +143,27 @@ func (p *MixPlanClient) CancelPlan(params plan.CancelPlanReq) (string, error) {
 }
 
 /**
+ * Planned entrustment (profit and loss stop) cancellation
+ * @param CancelPlanReq
+ * @return ResponseResult
+ */
+func (p *MixPlanClient) CancelAllPlan(params plan.CancelAllPlanReq) (string, error) {
+
+	postBody, jsonErr := internal.ToJson(params)
+
+	if jsonErr != nil {
+		return "", jsonErr
+	}
+
+	uri := constants.MixPlan + "/cancelAllPlan"
+
+	resp, err := p.BitgetRestClient.DoPost(uri, postBody)
+
+	return resp, err
+
+}
+
+/**
  * Get the current plan commission (profit stop and loss stop) list
  * @param symbol
  * @param isPlan
