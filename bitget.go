@@ -4,13 +4,13 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/outtoin/bitget-golang-sdk-api/config"
-	"github.com/outtoin/bitget-golang-sdk-api/internal/common"
-	"github.com/outtoin/bitget-golang-sdk-api/internal/model"
-	"github.com/outtoin/bitget-golang-sdk-api/pkg/client/broker"
-	"github.com/outtoin/bitget-golang-sdk-api/pkg/client/mix"
-	"github.com/outtoin/bitget-golang-sdk-api/pkg/client/spot"
-	"github.com/outtoin/bitget-golang-sdk-api/pkg/client/ws"
+	"github.com/ugabiga/bitget-golang-sdk-api/config"
+	"github.com/ugabiga/bitget-golang-sdk-api/internal/common"
+	"github.com/ugabiga/bitget-golang-sdk-api/internal/model"
+	"github.com/ugabiga/bitget-golang-sdk-api/pkg/client/broker"
+	"github.com/ugabiga/bitget-golang-sdk-api/pkg/client/mix"
+	"github.com/ugabiga/bitget-golang-sdk-api/pkg/client/spot"
+	"github.com/ugabiga/bitget-golang-sdk-api/pkg/client/ws"
 )
 
 // client
