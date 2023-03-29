@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/outtoin/bitget-golang-sdk-api/config"
 	"github.com/outtoin/bitget-golang-sdk-api/internal/common"
 	"github.com/outtoin/bitget-golang-sdk-api/internal/model"
 	"github.com/outtoin/bitget-golang-sdk-api/pkg/client/broker"
@@ -34,6 +35,30 @@ type Client struct {
 
 func NewClient() *Client {
 	bc := new(common.BitgetRestClient).Init()
+
+	return &Client{
+		client: bc,
+
+		brokerService:      &broker.BrokerAccountClient{bc},
+		mixAccountService:  &mix.MixAccountClient{bc},
+		mixMarketService:   &mix.MixMarketClient{bc},
+		mixOrderService:    &mix.MixOrderClient{bc},
+		mixPlanService:     &mix.MixPlanClient{bc},
+		mixPositionService: &mix.MixPositionClient{bc},
+		mixTraceService:    &mix.MixTraceClient{bc},
+		spotAccountService: &spot.SpotAccountClient{bc},
+		spotMarketService:  &spot.SpotMarketClient{bc},
+		spotOrderService:   &spot.SpotOrderClient{bc},
+		spotPublicService:  &spot.SpotPublicClient{bc},
+	}
+}
+
+func NewClientWithCredentials(apiKey, secretKey, passPhrase string) *Client {
+	bc := new(common.BitgetRestClient).InitWithCreds(&config.ApiCreds{
+		ApiKey:     apiKey,
+		SecretKey:  secretKey,
+		PASSPHRASE: passPhrase,
+	})
 
 	return &Client{
 		client: bc,
