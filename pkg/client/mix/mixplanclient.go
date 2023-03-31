@@ -235,3 +235,17 @@ func (p *MixPlanClient) HistoryPlan(symbol string, startTime string, endTime str
 	return resp, err
 
 }
+
+func (p *MixPlanClient) PlaceTrailingStopOrder(params plan.PlaceTrailingStopReq) (string, error) {
+	postBody, jsonErr := internal.ToJson(params)
+
+	if jsonErr != nil {
+		return "", jsonErr
+	}
+
+	uri := constants.MixPlan + "/placeTrailStop"
+
+	resp, err := p.BitgetRestClient.DoPost(uri, postBody)
+
+	return resp, err
+}
